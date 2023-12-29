@@ -1,3 +1,5 @@
+import SignupModal from '@/app/(beforeLogin)/_component/SignupModal'
+
 export default function Signup() {
-  return <div>회원가입 페이지</div>
+  return <SignupModal />
 }
