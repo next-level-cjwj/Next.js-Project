@@ -38,9 +38,10 @@ export default function AfterLoginLayout({ children }: Props) {
             </div>
             <div>
               ✨✨✨✨✨✨ <br />
-              TrendSection은 검색하기 페이지 맨 오른쪽에 팔로우 추천 상단에만
+              타닥타닥 기획에 맞게 꾸며 보자!
+              {/* TrendSection은 검색하기 페이지 맨 오른쪽에 팔로우 추천 상단에만
               있어도 될 것 같다. 이 부분을 타닥타닥 기획에 맞게 꾸며 보자, 무다
-              planet에 해당하는 부분처럼 해도 시선을 끌 것 같다.
+              planet에 해당하는 부분처럼 해도 시선을 끌 것 같다. */}
             </div>
             <div className={style.followRecommend}>
               <h4>팔로우 추천</h4>

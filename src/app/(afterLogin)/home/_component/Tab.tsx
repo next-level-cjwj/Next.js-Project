@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useContext } from 'react'
+import { TabContext } from './TabProvider'
 import style from './tab.module.css'
 
 export default function Tab() {
-  const [tab, setTab] = useState('rec')
+  const { tab, setTab } = useContext(TabContext)
 
   const onClickRec = () => {
     setTab('rec')
@@ -20,11 +21,11 @@ export default function Tab() {
       <div className={style.homeTab}>
         <div onClick={onClickRec}>
           추천
-          <div className={style.tabIndicator} hidden={tab === 'fol'}></div>
+          <div className={style.tabIndicator} hidden={tab === 'fol'} />
         </div>
         <div onClick={onClickFol}>
           팔로우 중
-          <div className={style.tabIndicator} hidden={tab === 'rec'}></div>
+          <div className={style.tabIndicator} hidden={tab === 'rec'} />
         </div>
       </div>
     </div>

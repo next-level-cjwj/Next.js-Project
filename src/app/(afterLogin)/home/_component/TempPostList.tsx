@@ -6,7 +6,7 @@ import { TabContext } from './TabProvider'
 export default function TempPostList() {
   const { tab } = useContext(TabContext)
 
-  console.log('tabState', tab)
+  console.log('tabState', tab) // "rec"
 
   return (
     <>
