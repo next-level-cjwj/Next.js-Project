@@ -10,4 +10,4 @@
 
 <br />
 
-[Next.js 14 새로운 기능! Server Action 알아보자!](https://dev-ea-jung.tistory.com/41)
+[Next.js 14 새로운 기능! Server Actions 알아보자!](https://dev-ea-jung.tistory.com/41)
