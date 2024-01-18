@@ -11,3 +11,7 @@
 <br />
 
 [Next.js 14 새로운 기능! Server Actions 알아보자!](https://dev-ea-jung.tistory.com/41)
+
+<br />
+
+[백엔드 개발자가 API 안 만들어 줬다고 손 놓고 있을겁니까? MSW(Mock Service Worker) 한번 써보세요!](https://dev-ea-jung.tistory.com/40)
