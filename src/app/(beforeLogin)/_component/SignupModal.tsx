@@ -35,11 +35,9 @@ export default function SignupModal() {
       console.log('res status 확인', response.status)
 
       if (response.status === 403) {
-        console.log('확인하자!')
         return { message: 'user_exists' }
       }
 
-      console.log('res 확인', response.json())
       shouldRedirect = true
     } catch (error) {
       console.log(error)
