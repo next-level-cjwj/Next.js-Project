@@ -8,7 +8,7 @@ const port = 9090 // 서버 port
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:3000', // 클라이언트 포트 번호
     optionsSuccessStatus: 200,
     credentials: true,
   })
