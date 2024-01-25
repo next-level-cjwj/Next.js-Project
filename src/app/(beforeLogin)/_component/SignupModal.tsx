@@ -1,53 +1,10 @@
-import { redirect } from 'next/navigation'
+// SignupModal.tsx
+import onSubmit from '../_lib/signup'
 import BackButtons from './BackButtons'
 import style from './signup.module.css'
 
 export default function SignupModal() {
-  const formAction = async (formData: FormData) => {
-    'use server'
-
-    // form data에 대한 검증
-    if (!formData.get('nickname')) {
-      return { message: 'no_nickname' }
-    }
-    if (!formData.get('id')) {
-      return { message: 'no_id' }
-    }
-    if (!formData.get('password')) {
-      return { message: 'no_id' }
-    }
-    if (!formData.get('image')) {
-      return { message: 'no_image' }
-    }
-
-    let shouldRedirect = false
-
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/users`,
-        {
-          method: 'post',
-          body: formData,
-          credentials: 'include', // 쿠키가 전달 되게 해준다. ex) 사용자가 이미 회원가입한 경우에 재 회원가입 시도한 경우를 처리 할 수 있다.
-        }
-      )
-
-      console.log('res status 확인', response.status)
-
-      if (response.status === 403) {
-        return { message: 'user_exists' }
-      }
-
-      shouldRedirect = true
-    } catch (error) {
-      console.log(error)
-      return
-    }
-
-    if (shouldRedirect) {
-      redirect('/home') // redirect는 try/catch문 안에서 쓰면 안된다.
-    }
-  }
+  const submit = onSubmit
 
   return (
     <div className={style.modalBackground}>
@@ -56,7 +13,16 @@ export default function SignupModal() {
           <div>🔥Tadak Tadak🔥 계정을 생성해 보세요.</div>
           <BackButtons />
         </div>
-        <form action={formAction}>
+        <form
+          action={submit}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            padding: '40px',
+            gap: '20px',
+            alignItems: 'center',
+          }}
+        >
           <div>
             <label className={style.inputLabel} htmlFor='nickname'>
               닉네임
@@ -65,7 +31,7 @@ export default function SignupModal() {
               id='nickname'
               name='nickname'
               type='text'
-              placeholder='타닥타닥에서 활동할 닉네임을 입력해 주세요. 😆'
+              placeholder='닉네임을 입력해 주세요. 😆'
               required
             />
           </div>
@@ -105,7 +71,9 @@ export default function SignupModal() {
               required
             />
           </div>
-          <button type='submit'>🙌 회원가입 하기 🙌</button>
+          <button type='submit' style={{ width: '120px' }}>
+            🙌 회원가입 하기 🙌
+          </button>
         </form>
       </div>
     </div>
