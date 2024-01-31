@@ -1,10 +1,31 @@
-// SignupModal.tsx
+'use client'
+
+import { useFormState, useFormStatus } from 'react-dom'
 import onSubmit from '../_lib/signup'
 import BackButtons from './BackButtons'
 import style from './signup.module.css'
 
 export default function SignupModal() {
-  const submit = onSubmit
+  const [state, formAction] = useFormState(onSubmit, { message: null })
+  const { pending } = useFormStatus()
+
+  const showMessage = (message: string) => {
+    if (message === 'no_id') {
+      return '아이디를 다시 입력해주세요!'
+    }
+    if (message === 'no_nickname') {
+      return '닉네임을 다시 입력해주세요!'
+    }
+    if (message === 'no_password') {
+      return '비밀번호를 다시 입력해주세요!'
+    }
+    if (message === 'no_image') {
+      return '이미지를 다시 업로드 해주세요!'
+    }
+    if (message === 'user_exists') {
+      return '이미 사용 중인 아이디입니다!'
+    }
+  }
 
   return (
     <div className={style.modalBackground}>
@@ -14,7 +35,7 @@ export default function SignupModal() {
           <BackButtons />
         </div>
         <form
-          action={submit}
+          action={formAction}
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -71,9 +92,12 @@ export default function SignupModal() {
               required
             />
           </div>
-          <button type='submit' style={{ width: '120px' }}>
-            🙌 회원가입 하기 🙌
-          </button>
+          <div className={style.modalFooter}>
+            <div>회원가입 중 에러 메세지 발생</div>
+            <button type='submit' style={{ width: '120px' }} disabled={pending}>
+              🙌 회원가입 하기 🙌
+            </button>
+          </div>
         </form>
       </div>
     </div>
