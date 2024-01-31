@@ -1,5 +1,3 @@
-// LoginModal
-
 'use client'
 
 import onSubmit from '../_lib/signup'
