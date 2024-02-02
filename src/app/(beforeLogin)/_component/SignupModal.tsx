@@ -9,7 +9,7 @@ export default function SignupModal() {
   const [state, formAction] = useFormState(onSubmit, { message: null })
   const { pending } = useFormStatus()
 
-  const showMessage = (message: string) => {
+  const showMessage = (message: string | undefined | null) => {
     if (message === 'no_id') {
       return '아이디를 다시 입력해주세요!'
     }
@@ -23,8 +23,9 @@ export default function SignupModal() {
       return '이미지를 다시 업로드 해주세요!'
     }
     if (message === 'user_exists') {
-      return '이미 사용 중인 아이디입니다!'
+      return '이미 사용 중인 아이디입니다.'
     }
+    return ''
   }
 
   return (
@@ -93,7 +94,7 @@ export default function SignupModal() {
             />
           </div>
           <div className={style.modalFooter}>
-            <div>회원가입 중 에러 메세지 발생</div>
+            <div style={{ color: 'red' }}>{showMessage(state?.message)}</div>
             <button type='submit' style={{ width: '120px' }} disabled={pending}>
               🙌 회원가입 하기 🙌
             </button>
