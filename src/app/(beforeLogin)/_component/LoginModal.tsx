@@ -1,11 +1,25 @@
 'use client'
 
+import { useFormState, useFormStatus } from 'react-dom'
 import onSubmit from '../_lib/signup'
 import BackButtons from './BackButtons'
 import style from './login.module.css'
 
 export default function LoginModal() {
   const submit = onSubmit
+
+  const [state, formAction] = useFormState(onSubmit, { message: null })
+  const { pending } = useFormStatus()
+
+  const showMessage = (message: string | undefined | null) => {
+    if (message === 'no_id') {
+      return '아이디를 다시 입력해주세요!'
+    }
+    if (message === 'no_password') {
+      return '비밀번호를 다시 입력해주세요!'
+    }
+    return ''
+  }
 
   return (
     <div className={style.modalBackground}>
@@ -16,7 +30,7 @@ export default function LoginModal() {
         </div>
 
         <form
-          action={submit}
+          action={formAction}
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -49,9 +63,12 @@ export default function LoginModal() {
               required
             />
           </div>
-          <button type='submit' style={{ width: '120px' }}>
-            🙌 로그인 하기 🙌
-          </button>
+          <div className={style.modalFooter}>
+            <div style={{ color: 'red' }}>{showMessage(state?.message)}</div>
+            <button type='submit' style={{ width: '120px' }}>
+              🙌 로그인 하기 🙌
+            </button>
+          </div>
         </form>
       </div>
     </div>
