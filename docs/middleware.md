@@ -44,10 +44,10 @@ Middleware는 캐시된 content와 경로가 일치하기 전에 실행됩니다
   // middleware.ts
 
   // 미들웨어 역할을 한다.
-  // auth 함수를 호출하면 로그인했는지 안 했는지 알 수 있다.
+  // auth 함수를 호출하면 로그인 했는지 안 했는지 알 수 있다.
   export { auth as middleware } from './auth' // export function middleware 역할을 한다.
 
-  // auth를 통해서 로그인 여부를 파악하고, 아래의 route들을 로그인을 해야 만 접근할 수 있는 루트들이다.
+  // auth를 통해서 로그인 여부를 파악하고, 아래의 route들은 로그인을 해야 만 접근할 수 있는 루트들이다.
 
   export const config = {
     // middleware를 적용한 루트들
