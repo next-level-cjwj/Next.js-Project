@@ -6,7 +6,7 @@ export const handlers = [
     return HttpResponse.json(
       {
         userId: 1,
-        nickname: '타다닥',
+        nickname: '타닥타닥_닉네임',
         id: 'ea',
         image: '/5Udwvqim.jpg',
       },
