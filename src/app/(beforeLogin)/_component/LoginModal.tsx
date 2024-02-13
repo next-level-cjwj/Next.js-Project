@@ -1,7 +1,7 @@
 'use client'
 
 import { useFormState, useFormStatus } from 'react-dom'
-import onSubmit from '../_lib/signup'
+import onSubmit from '../_lib/login'
 import BackButtons from './BackButtons'
 import style from './login.module.css'
 
