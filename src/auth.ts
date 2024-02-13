@@ -2,9 +2,9 @@ import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 export const {
-  handlers: { GET, POST }, // API route
+  handlers: { GET, POST },
   auth,
-  signIn, // 로그인 하는 용
+  signIn,
 } = NextAuth({
   pages: {
     signIn: '/i/flow/login',
@@ -13,8 +13,6 @@ export const {
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        // credentials 안에 username이랑 password 가 들어있다.
-        // 로그인을 수행할때 호출 되는 부분
         const authResponse = await fetch(`${process.env.AUTH_URL}/api/login`, {
           method: 'POST',
           headers: {
