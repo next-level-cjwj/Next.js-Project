@@ -1,6 +1,7 @@
 import style from '@/app/(afterLogin)/layout.module.css'
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import LogoutButton from './_component/LogoutButton'
 import NavMenu from './_component/NavMenu'
 
 type Props = {
@@ -24,7 +25,7 @@ export default function AfterLoginLayout({ children }: Props) {
                 🔥 글 게시하기 🔥
               </Link>
             </nav>
-            <div>🔙로그아웃🔙</div>
+            <LogoutButton />
           </div>
         </section>
       </header>
