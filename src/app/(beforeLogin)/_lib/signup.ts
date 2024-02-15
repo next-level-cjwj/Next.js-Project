@@ -41,6 +41,7 @@ export default async (prevState: any, formData: FormData) => {
 
     shouldRedirect = true
 
+    // 회원 가입 성공 후 로그인까지 바로 되게 한다.
     await signIn('credentials', {
       username: formData.get('id'),
       password: formData.get('password'),
