@@ -1,5 +1,6 @@
 import style from '@/app/(afterLogin)/layout.module.css'
 import { auth } from '@/auth'
+import { Session } from '@auth/core/types'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import LogoutButton from './_component/LogoutButton'
@@ -31,7 +32,7 @@ export default async function AfterLoginLayout({ children }: Props) {
                     🔥 글 게시하기 🔥
                   </Link>
                 </nav>
-                <LogoutButton />
+                <LogoutButton me={session as Session} />
               </>
             )}
           </div>
