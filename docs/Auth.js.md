@@ -116,3 +116,38 @@ export const {
   ],
 })
 ```
+
+### useSession( )
+
+[useSession( )](https://next-auth.js.org/getting-started/example#frontend---add-react-hook)
+
+- The <code>useSession()</code> React Hook in the NextAuth.js client is the easiest way to check if someone is signed in.
+
+  - 클라이언트 컴포넌트인 경우 <code>useSession()</code> 훅을 이용해서 로그인 여부를 확인할 수 있습니다.
+
+  ```
+  import { useSession, signIn, signOut } from "next-auth/react"
+
+  export default function Component() {
+    const { data: session } = useSession()
+
+    if (session) {
+      return (
+        <>
+          Signed in as {session.user.email} <br />
+          <button onClick={() => signOut()}>Sign out</button>
+        </>
+      )
+    }
+    return (
+      <>
+        Not signed in <br />
+        <button onClick={() => signIn()}>Sign in</button>
+      </>
+    )
+  }
+  ```
+
+### auth( )
+
+- 서버 컴포넌트인 경우 <code>auth()</code> 를 이용해서 로그인 여부를 확일 할 수 있습니다.
