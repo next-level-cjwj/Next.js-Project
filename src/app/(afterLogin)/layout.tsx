@@ -1,4 +1,5 @@
 import style from '@/app/(afterLogin)/layout.module.css'
+import { auth } from '@/auth'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import LogoutButton from './_component/LogoutButton'
@@ -8,7 +9,9 @@ type Props = {
   children: ReactNode
 }
 
-export default function AfterLoginLayout({ children }: Props) {
+export default async function AfterLoginLayout({ children }: Props) {
+  const session = await auth()
+
   return (
     <div className={style.container}>
       <header className={style.leftSectionWrapper}>
@@ -17,15 +20,20 @@ export default function AfterLoginLayout({ children }: Props) {
             <Link className={style.logo} href='/home'>
               <div>🔥</div>
             </Link>
-            <nav>
-              <ul>
-                <NavMenu />
-              </ul>
-              <Link className={style.postButton} href='/compose/tadak'>
-                🔥 글 게시하기 🔥
-              </Link>
-            </nav>
-            <LogoutButton />
+
+            {session?.user && (
+              <>
+                <nav>
+                  <ul>
+                    <NavMenu />
+                  </ul>
+                  <Link className={style.postButton} href='/compose/tadak'>
+                    🔥 글 게시하기 🔥
+                  </Link>
+                </nav>
+                <LogoutButton />
+              </>
+            )}
           </div>
         </section>
       </header>
