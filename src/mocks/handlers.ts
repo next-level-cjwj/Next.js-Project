@@ -6,9 +6,9 @@ export const handlers = [
     return HttpResponse.json(
       {
         userId: 1,
-        nickname: '타닥타닥_닉네임',
-        id: 'ea',
-        image: '/5Udwvqim.jpg',
+        nickname: '타닥타닥_임시_닉네임',
+        id: '타닥타닥_임시_아이디',
+        image: '/public/vercel.svg',
       },
       {
         headers: {
@@ -27,7 +27,6 @@ export const handlers = [
   }),
 
   http.post('/api/users', async () => {
-    console.log('회원가입')
     // msw 로 흉내를 낼 수 있다.
 
     // 동일한 id의 user가 회원가입 했을경우 403 에러를 보내준다.
