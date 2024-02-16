@@ -10,9 +10,6 @@ type Props = {
 
 export default function LogoutButton({ me }: Props) {
   const router = useRouter()
-  // const { data: me } = useSession()
-
-  // console.log('me data', me)
 
   const onLogout = () => {
     signOut({ redirect: false }).then(() => {
@@ -20,7 +17,6 @@ export default function LogoutButton({ me }: Props) {
     })
   }
 
-  // 내 정보 없으면 로그아웃 버튼 안 보여주기
   if (!me?.user) {
     return null
   }
