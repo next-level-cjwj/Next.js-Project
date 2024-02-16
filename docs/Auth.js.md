@@ -151,3 +151,55 @@ export const {
 ### auth( )
 
 - 서버 컴포넌트인 경우 <code>auth()</code> 를 이용해서 로그인 여부를 확일 할 수 있습니다.
+
+</br>
+
+### 🔥 Tadak Tadak 프로젝트에 적용
+
+#### **원하는 상황**
+
+**Auth.js**를 이용해서 로그인에 성공하면 Home Page로 이동 된다. ➡︎ Home Page 에서 유저가 로그인 했다는 의미의 **me data**가 확인 되면 ➡︎ Home Page 하단에 로그아웃 버튼이 보인다.
+
+#### **문제 상황**
+
+로그인 시 홈페이지로 이동하기는 하지만 **me data**에 **null** 값이 들어와 로그아웃 버튼이 보이지 않는다. 하지만 새로고침을 하면 **me data** 정보가 확인되고 로그아웃 버튼도 볼 수 있다.
+
+#### **문제 해결 과정**
+
+유저가 로그인 했는지 확인하기 위해 **me data**에 값이 들어있나를 확인하는데, 이전에는 <code>LogoutButton Component</code>에서 <code>useSession()</code> 을 이용해서 확인 했습니다.
+
+```
+const {data: me} = useSession()
+
+// 내 정보 없으면 로그아웃 버튼 안 보여주기
+if(me?.user) {
+  return null
+}
+```
+
+</br>
+
+> ❗️ 하지만 세션 자체를 **SSR** 하려면 **auth( )** 로 **me data**를 확인 해야 합니다.
+
+</br>
+
+#### **수정한 소스 코드**
+
+<code>LogoutButton Component</code>가 있는 페이지에서 **auth( )** 를 이용해서 로그인 유저 데이터를 가져오고, <code>LogoutButton Component</code>에 **prop**으로 **me data(<code>me</code>)** 를 넘겨 주는 방식으로 변경하면 해결된다.
+
+```
+// layout.tsx
+const session = await auth()
+...
+
+<LogoutButton me={session as Session} />
+
+// LogoutButton.tsx
+export default function LogoutButton({ me }: Props) {
+
+// 내 정보 없으면 로그아웃 버튼 안 보여주기
+if (!me?.user) {
+    return null
+  }
+}
+```
