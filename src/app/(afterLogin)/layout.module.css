@@ -14,7 +14,7 @@
 .leftSection {
   width: 72px;
   height: 100dvh;
-  background-color: dodgerblue;
+  background-color: rgb(155, 183, 211);
   display: flex;
   flex-direction: column;
 }
@@ -54,12 +54,12 @@
   justify-content: center;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 28px;
-  background-color: orange;
+  background-color: rgb(253, 247, 250);
   /* width: 50px; */
   height: 50px;
 }
 .postButton:hover {
-  background-color: rgb(26, 140, 216);
+  background-color: rgb(192, 220, 239);
 }
 
 .rightSectionWrapper {
@@ -72,7 +72,7 @@
 
 .rightSection {
   display: none;
-  background-color: aqua;
+  background-color: rgb(143, 183, 183);
 }
 
 .rightSectionInner {
@@ -80,7 +80,7 @@
   width: 600px;
   display: flex;
   justify-content: space-between;
-  background-color: #fff9d6;
+  background-color: #f5cde7;
 }
 
 @media all and (min-width: 1024px) {
@@ -88,11 +88,11 @@
     display: inline-block;
     width: 350px;
     height: 100%;
-    background-color: rgb(210, 210, 255);
+    background-color: rgb(233, 233, 252);
   }
   .rightSectionInner {
     width: 990px;
-    background-color: #fff9d6;
+    background-color: #f4f1dd;
   }
 }
 
