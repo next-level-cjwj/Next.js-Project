@@ -41,4 +41,23 @@ export const handlers = [
       },
     })
   }),
+
+  http.get('/api/postRecommends', async ({ request }) => {
+    return HttpResponse.json([
+      {
+        postId: 1,
+        User: 'ea',
+        content: '컨텐츠다',
+        Images: '이미지 파일 위치',
+        createdAt: '2023.02.27',
+      },
+      {
+        postId: 2,
+        User: 'john',
+        content: '두번째 컨텐츠다',
+        Images: '이미지 파일 위치',
+        createdAt: '2023.01.27',
+      },
+    ])
+  }),
 ]
