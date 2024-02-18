@@ -25,7 +25,7 @@ export default function LoginModal() {
     <div className={style.modalBackground}>
       <div className={style.modal}>
         <div className={style.modalHeader}>
-          <div>🔥Tadak Tadak🔥 계정을 생성해 보세요.</div>
+          <div>🔥Tadak Tadak🔥 로그인 해주세요!</div>
           <BackButtons />
         </div>
 
