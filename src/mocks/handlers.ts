@@ -1,4 +1,17 @@
+import { faker } from '@faker-js/faker'
 import { http, HttpResponse } from 'msw'
+
+function generateDate() {
+  const lastWeek = new Date(Date.now())
+
+  lastWeek.setDate(lastWeek.getDate() - 7)
+
+  return faker.date.between({
+    // 지난주 부터 오늘까지 중 임의의 날짜 하나를 골라준다.
+    from: lastWeek,
+    to: Date.now(),
+  })
+}
 
 // 백엔드 server를 대체하는 부분이다.
 export const handlers = [
