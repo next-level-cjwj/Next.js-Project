@@ -1,3 +1,5 @@
+'use client'
+
 import LoginModal from '@/app/(beforeLogin)/_component/LoginModal'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
