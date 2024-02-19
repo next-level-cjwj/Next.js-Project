@@ -13,6 +13,14 @@ function generateDate() {
   })
 }
 
+const User = [
+  { id: 'elonmusk', nickname: 'Elon Musk', image: '/yRsRRjGO.jpg' },
+  { id: 'tadak', nickname: '타닥', image: '/5Udwvqim.jpg' },
+  { id: 'reo', nickname: '레오', image: faker.image.avatar() },
+]
+
+const Posts = []
+
 // 백엔드 server를 대체하는 부분이다.
 export const handlers = [
   http.post('/api/login', () => {
@@ -56,20 +64,60 @@ export const handlers = [
   }),
 
   http.get('/api/postRecommends', async ({ request }) => {
+    const url = new URL(request.url)
+    const cursor = parseInt(url.searchParams.get('cursor') as string) || 0 // 이거 뭐냐...?
+
     return HttpResponse.json([
       {
         postId: 1,
-        User: 'ea',
+        User: User[0],
         content: '컨텐츠다',
         Images: '이미지 파일 위치',
-        createdAt: '2023.02.27',
+        createdAt: generateDate(),
       },
       {
         postId: 2,
-        User: 'john',
+        User: User[0],
         content: '두번째 컨텐츠다',
         Images: '이미지 파일 위치',
-        createdAt: '2023.01.27',
+        createdAt: generateDate(),
+      },
+      {
+        postId: 3,
+        User: User[0],
+        content: '컨텐츠다다',
+        Images: '이미지 파일 위치',
+        createdAt: generateDate(),
+      },
+      {
+        postId: 4,
+        User: User[0],
+        content: '네번째 컨텐츠다',
+        Images: '이미지 파일 위치',
+        createdAt: generateDate(),
+      },
+      {
+        postId: 5,
+        User: User[0],
+        content: `${cursor + 4} Z.com is so marvelous. I'm gonna buy that.`,
+        Images: [
+          { imageId: 1, link: faker.image.urlLoremFlickr() },
+          { imageId: 2, link: faker.image.urlLoremFlickr() },
+          { imageId: 3, link: faker.image.urlLoremFlickr() },
+          { imageId: 4, link: faker.image.urlLoremFlickr() },
+        ],
+        createdAt: generateDate(),
+      },
+      {
+        postId: 6,
+        User: User[0],
+        content: `${cursor + 5} Z.com is so marvelous. I'm gonna buy that.`,
+        Images: [
+          { imageId: 1, link: faker.image.urlLoremFlickr() },
+          { imageId: 2, link: faker.image.urlLoremFlickr() },
+          { imageId: 3, link: faker.image.urlLoremFlickr() },
+        ],
+        createdAt: generateDate(),
       },
     ])
   }),
