@@ -7,15 +7,14 @@ function generateDate() {
   lastWeek.setDate(lastWeek.getDate() - 7)
 
   return faker.date.between({
-    // 지난주 부터 오늘까지 중 임의의 날짜 하나를 골라준다.
     from: lastWeek,
     to: Date.now(),
   })
 }
 
 const User = [
-  { id: 'elonmusk', nickname: 'Elon Musk', image: '/yRsRRjGO.jpg' },
-  { id: 'tadak', nickname: '타닥', image: '/5Udwvqim.jpg' },
+  { id: 'elonmusk', nickname: 'Elon Musk', image: faker.image.avatar() },
+  { id: 'tadak', nickname: '타닥', image: faker.image.avatar() },
   { id: 'reo', nickname: '레오', image: faker.image.avatar() },
 ]
 
@@ -71,35 +70,42 @@ export const handlers = [
       {
         postId: 1,
         User: User[0],
-        content: '컨텐츠다',
-        Images: '이미지 파일 위치',
+        content: '첫번째 컨텐츠다',
+        Images: [],
         createdAt: generateDate(),
       },
       {
         postId: 2,
-        User: User[0],
+        User: User[1],
         content: '두번째 컨텐츠다',
-        Images: '이미지 파일 위치',
+        Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
         createdAt: generateDate(),
       },
       {
         postId: 3,
-        User: User[0],
-        content: '컨텐츠다다',
-        Images: '이미지 파일 위치',
+        User: User[2],
+        content: '나는 세번째 컨텐츠다다',
+        Images: [
+          { imageId: 1, link: faker.image.urlLoremFlickr() },
+          { imageId: 2, link: faker.image.urlLoremFlickr() },
+        ],
         createdAt: generateDate(),
       },
       {
         postId: 4,
         User: User[0],
-        content: '네번째 컨텐츠다',
-        Images: '이미지 파일 위치',
+        content: '나는야 네번째 컨텐츠다',
+        Images: [
+          { imageId: 1, link: faker.image.urlLoremFlickr() },
+          { imageId: 2, link: faker.image.urlLoremFlickr() },
+          { imageId: 3, link: faker.image.urlLoremFlickr() },
+        ],
         createdAt: generateDate(),
       },
       {
         postId: 5,
-        User: User[0],
-        content: `${cursor + 4} Z.com is so marvelous. I'm gonna buy that.`,
+        User: User[1],
+        content: '다섯이다.',
         Images: [
           { imageId: 1, link: faker.image.urlLoremFlickr() },
           { imageId: 2, link: faker.image.urlLoremFlickr() },
@@ -110,13 +116,9 @@ export const handlers = [
       },
       {
         postId: 6,
-        User: User[0],
-        content: `${cursor + 5} Z.com is so marvelous. I'm gonna buy that.`,
-        Images: [
-          { imageId: 1, link: faker.image.urlLoremFlickr() },
-          { imageId: 2, link: faker.image.urlLoremFlickr() },
-          { imageId: 3, link: faker.image.urlLoremFlickr() },
-        ],
+        User: User[2],
+        content: '여섯 66666 이다',
+        Images: [],
         createdAt: generateDate(),
       },
     ])
