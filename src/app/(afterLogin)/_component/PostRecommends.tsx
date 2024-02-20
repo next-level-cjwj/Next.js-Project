@@ -9,5 +9,5 @@ export default function PostRecommends() {
     queryFn: getPostRecommends,
   })
 
-  console.log('추천 글 확인', data)
+  return data.map((post) => <Post post={post} />)
 }
