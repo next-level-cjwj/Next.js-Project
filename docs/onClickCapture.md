@@ -55,9 +55,7 @@ export default function Event() {
 
 ### onClickCapture( )를 언제 사용하면 좋을까?
 
-### 🔥 Tadak Tadak 프로젝트에 적용
-
-=> 이유 찾자!!
+#### 🔥 Tadak Tadak 프로젝트에 적용
 
 ```
 // PostArticle.tsx

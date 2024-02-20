@@ -1,18 +1,19 @@
 'use client'
 
+import { Post } from '@/model/Post'
+import { useRouter } from 'next/navigation'
 import { ReactNode } from 'react'
 
 type Props = {
   children: ReactNode
-  post: {
-    postId: number
-    User: { id: string; nickname: string; image: string }
-    content: string
-    Images: any[]
-    createdAt: Date
-  }
+  post: Post
 }
 
 export default function PostArticle({ children, post }: Props) {
-  return <article></article>
+  const router = useRouter()
+  const onPostClick = () => {
+    router.push(`/${post.User.id}/status/${post.postId}`)
+  }
+
+  return <article onClickCapture={onPostClick}>{children}</article>
 }
