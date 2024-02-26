@@ -3,7 +3,7 @@
 export async function getPostRecommends() {
   const res = await fetch(`http://localhost:9090/api/postRecommends`, {
     next: {
-      tags: ['posts', 'recommends'],
+      tags: ['posts', 'recommends'], // 서버쪽 캐싱 담당
     },
   })
 

@@ -9,7 +9,11 @@ export default function TempPostList() {
 
   return (
     <>
-      {tab === 'rec' && <PostRecommends />}
+      {tab === 'rec' && (
+        <>
+          <PostRecommends />
+        </>
+      )}
       {tab === 'fol' && (
         <>
           <li>팔로우 포스트</li>
