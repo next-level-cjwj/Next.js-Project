@@ -3,6 +3,7 @@ import {
   QueryClient,
   dehydrate,
 } from '@tanstack/react-query'
+import PostForm from './_component/PostForm'
 import Tab from './_component/Tab'
 import TabProvider from './_component/TabProvider'
 import TempPostList from './_component/TempPostList'
@@ -24,7 +25,7 @@ export default async function Home() {
       <HydrationBoundary state={dehydratedState}>
         <TabProvider>
           <Tab />
-          <div style={{ marginTop: '110px' }}>게시글 입력 폼</div>
+          <PostForm />
           <TempPostList />
         </TabProvider>
       </HydrationBoundary>
