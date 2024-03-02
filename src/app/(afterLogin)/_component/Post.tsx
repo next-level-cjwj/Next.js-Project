@@ -5,12 +5,20 @@ import PostImage from './PostImage'
 import style from './post.module.css'
 
 type Props = {
-  // noImage: boolean
+  noImage?: boolean
   post: Post
 }
 
-export default function Post({ post }: Props) {
+export default function Post({ noImage, post }: Props) {
   const target = post
+
+  // if (!post.Images) {
+  //   return null
+  // }
+
+  // if(!post.Images.length) {
+  //   return null
+  // }
 
   return (
     <PostArticle post={target}>
@@ -39,7 +47,11 @@ export default function Post({ post }: Props) {
             </Link>
           </div>
           <div>{target.content}</div>
-          <PostImage post={target} />
+          {!noImage && (
+            <div>
+              <PostImage post={target} />
+            </div>
+          )}
         </div>
       </div>
     </PostArticle>
