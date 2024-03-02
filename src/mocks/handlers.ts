@@ -121,6 +121,13 @@ export const handlers = [
         Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
         createdAt: generateDate(),
       },
+      {
+        postId: 1,
+        User: User[2],
+        content: '일곱번째 컨텐츠다. 이미지가 하나도 없다.',
+        Images: [],
+        createdAt: generateDate(),
+      },
     ])
   }),
 ]
