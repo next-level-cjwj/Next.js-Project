@@ -14,7 +14,7 @@
 .leftSection {
   width: 72px;
   height: 100dvh;
-  background-color: rgb(155, 183, 211);
+  background-color: #5a769d;
   display: flex;
   flex-direction: column;
 }
