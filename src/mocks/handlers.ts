@@ -70,7 +70,8 @@ export const handlers = [
       {
         postId: 1,
         User: User[0],
-        content: '첫번째 컨텐츠다 이미지 하나 있다.',
+        content:
+          '첫번째 컨텐츠다 이미지 하나 있다. 왜 변경사항 반영되는지 확인중',
         Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
         createdAt: generateDate(),
       },
@@ -123,6 +124,67 @@ export const handlers = [
       },
       {
         postId: 1,
+        User: User[2],
+        content: '일곱번째 컨텐츠다. 이미지가 하나도 없다.',
+        Images: [],
+        createdAt: generateDate(),
+      },
+      {
+        postId: 7,
+        User: User[0],
+        content: '첫번째 컨텐츠다 이미지 하나 있다.',
+        Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
+        createdAt: generateDate(),
+      },
+      {
+        postId: 8,
+        User: User[1],
+        content: '두번째 컨텐츠다 이미지는 하나임.',
+        Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
+        createdAt: generateDate(),
+      },
+      {
+        postId: 9,
+        User: User[2],
+        content: '나는 세번째 컨텐츠다다. 이미지는 두개임.',
+        Images: [
+          { imageId: 1, link: faker.image.urlLoremFlickr() },
+          { imageId: 2, link: faker.image.urlLoremFlickr() },
+        ],
+        createdAt: generateDate(),
+      },
+      {
+        postId: 10,
+        User: User[0],
+        content: '나는야 네번째 컨텐츠다. 이미지는 세개임.',
+        Images: [
+          { imageId: 1, link: faker.image.urlLoremFlickr() },
+          { imageId: 2, link: faker.image.urlLoremFlickr() },
+          { imageId: 3, link: faker.image.urlLoremFlickr() },
+        ],
+        createdAt: generateDate(),
+      },
+      {
+        postId: 11,
+        User: User[1],
+        content: '다섯번째 컨텐츠다. 이미지는 4개다.',
+        Images: [
+          { imageId: 1, link: faker.image.urlLoremFlickr() },
+          { imageId: 2, link: faker.image.urlLoremFlickr() },
+          { imageId: 3, link: faker.image.urlLoremFlickr() },
+          { imageId: 4, link: faker.image.urlLoremFlickr() },
+        ],
+        createdAt: generateDate(),
+      },
+      {
+        postId: 12,
+        User: User[2],
+        content: '여섯 66666 이다. 이미지가 하나인 컨텐츠다.',
+        Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
+        createdAt: generateDate(),
+      },
+      {
+        postId: 13,
         User: User[2],
         content: '일곱번째 컨텐츠다. 이미지가 하나도 없다.',
         Images: [],
