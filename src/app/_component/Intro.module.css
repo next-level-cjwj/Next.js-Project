@@ -1,0 +1,54 @@
+.navFixed {
+  height: 60px;
+  width: 100%;
+  border: 2px;
+  position: fixed;
+  top: 0px;
+  background-color: beige;
+}
+
+.navItemContainer {
+  display: flex;
+}
+
+.navMenu {
+  margin-left: 40px;
+}
+
+.navMenu > ul {
+  display: flex;
+  list-style: none;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navMenu > ul > li {
+  margin: 20px;
+}
+
+.main {
+  margin-top: 60px;
+  /* display: block;
+  padding: 0;
+  margin: 0; */
+}
+
+.main section {
+  height: 100vh;
+  width: 100vw;
+  border: solid 2px;
+  background-color: skyblue;
+}
+
+.introFirstSection {
+}
+
+.introSecondSection {
+}
+
+.introThirdSection {
+}
