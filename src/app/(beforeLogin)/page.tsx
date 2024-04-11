@@ -1,13 +1,13 @@
 import { auth } from '@/auth'
 import { redirect } from 'next/navigation'
-import Main from './_component/Main'
+import Intro from './_component/Intro'
 
-export default async function Home() {
+export default async function Main() {
   const session = await auth()
 
   if (session?.user) {
     redirect('/home')
   }
 
-  return <Main />
+  return <Intro />
 }
