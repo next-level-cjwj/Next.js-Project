@@ -1,0 +1,63 @@
+.container {
+  opacity: 0;
+}
+
+.topAnimation {
+  animation: top 2s both;
+}
+
+.bottomAnimation {
+  animation: bottom 2s both;
+}
+
+.rightAnimation {
+  animation: right 2s both;
+}
+
+.leftAnimation {
+  animation: left 2s both;
+}
+
+@keyframes top {
+  from {
+    transform: translateY(5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bottom {
+  from {
+    transform: translateY(-5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes right {
+  from {
+    transform: translateX(-5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes left {
+  from {
+    transform: translateX(5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
